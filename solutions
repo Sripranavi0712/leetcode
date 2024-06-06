@@ -23,3 +23,51 @@ public class Month {
         sc.close();
     }
 }
+
+2SOL:
+import java.util.Scanner;
+
+public class Clerk {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        int[] salaries = new int[size];
+        for (int i = 0; i < size; i++) {
+            salaries[i] = scanner.nextInt();
+        }
+
+        int repeaters = countRepeaters(salaries, size);
+        if (repeaters != -1) {
+            System.out.println(repeaters);
+        }
+
+        scanner.close();
+    }
+
+    public static int countRepeaters(int[] salaries, int size) {
+        if (size <= 0) {
+            System.out.println("Invalid Input");
+            return -1;
+        }
+        for (int salary : salaries) {
+            if (salary < 0) {
+                System.out.println("Invalid Input");
+                return -1;
+            }
+        }
+        int repeaters = 1;
+        for (int i = 0; i < size; i++) {
+            boolean isRepeated = false;
+            for (int j = i + 1; j < size; j++) {
+                if (salaries[i] == salaries[j]) {
+                    isRepeated = true;
+                    break;
+                }
+            }
+            if (isRepeated) {
+                repeaters++;
+            }
+        }
+        return repeaters;
+    }
+}
