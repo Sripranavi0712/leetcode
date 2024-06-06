@@ -196,3 +196,144 @@ public class PowerOfTwo {
     }
 
 }
+
+
+COUNT OF 3 MULTIPLES:
+import java.util.Scanner;
+
+public class MultiplesOfThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        if (n < 0 || n > 20) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            if (arr[i] < 0) {
+                System.out.println("Invalid Input");
+                return;
+            }
+        }
+        
+        int result = divisibleBy3(arr, n);
+        System.out.println(result);
+        
+        sc.close();
+    }
+    
+    public static int divisibleBy3(int[] arr, int size) {
+        if (size < 0) {
+            System.out.println("Invalid Input");
+            return -1;
+        }
+        
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] % 3 == 0) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+}
+
+EVENODDSUM:
+import java.util.Scanner;
+
+public class PlotPassword {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        if (n < 0 || n > 20) {
+            System.out.println("Invalid Input");
+            return;
+        }
+
+        int[] plotNumbers = new int[n];
+        for (int i = 0; i < n; i++) {
+            plotNumbers[i] = sc.nextInt();
+            if (plotNumbers[i] < 0) {
+                System.out.println("Invalid Input");
+                return;
+            }
+        }
+
+        float password = avgOddEvenSum(plotNumbers, n);
+        if (password != -1) {
+            System.out.printf("%.2f%n", password);
+        }
+
+        sc.close();
+    }
+
+    public static float avgOddEvenSum(int[] arr, int size) {
+        if (size < 0) {
+            System.out.println("Invalid Input");
+            return -1;
+        }
+
+        int sumEven = 0, sumOdd = 0;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] % 2 == 0) {
+                sumEven += arr[i];
+            } else {
+                sumOdd += arr[i];
+            }
+        }
+
+        float average = (sumEven + sumOdd) / 2.0f;
+        return average;
+    }
+}
+
+ARITHMETIC OPERATIONS
+import java.util.Scanner;
+
+public class Arithmetic {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        
+        if (a < 0 || a > 32767 || b < 0 || b > 32767 || c < 1 || c > 4) {
+            System.out.println("Invalid Input");
+        } 
+        else {
+            int result = performArithmeticOperation(a, b, c);
+            if (result == -1) {
+                System.out.println("Invalid Input");
+            } else {
+                System.out.println(result);
+            }
+        }
+
+        sc.close();
+    }
+
+    public static int performArithmeticOperation(int a, int b, int c) {
+        switch (c) {
+            case 1:
+                return a + b;
+            case 2:
+                return a - b;
+            case 3:
+                return a * b;
+            case 4:
+                if (b == 0) {
+                    return -1; 
+                }
+                return a / b;
+            default:
+                return -1;
+        }
+    }
+}
