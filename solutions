@@ -71,3 +71,31 @@ public class Clerk {
         return repeaters;
     }
 }
+
+5SOL:
+import java.util.Scanner;
+
+public class PowerOfTwo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+
+        if (number < 0) {
+            System.out.println("Number too small");
+        } else if (number > 32767) {
+            System.out.println("Number too large");
+        } else {
+            String result = powerOfTwo(number) ? "Yes" : "No";
+            System.out.println(result);
+        }
+
+        scanner.close();
+    }
+    public static boolean powerOfTwo(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        return (Math.log(n) / Math.log(2)) % 1 == 0;
+    }
+
+}
