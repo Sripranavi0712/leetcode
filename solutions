@@ -1,0 +1,25 @@
+1SOL:
+import java.util.*;
+import java.lang.*;
+public class Month {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int Salary=sc.nextInt();
+        int Shifts=sc.nextInt();
+        if(Salary>8000) {
+            System.out.println("Salary too large" );
+        }
+        else if(Salary<0) {
+            System.out.println("Salary too small" );
+        }
+        else if(Shifts<0) {
+            System.out.println("Shifts too small" );
+        }
+        else {
+            double Savings=Salary-(0.2 * Salary)-(0.3*Salary) + (0.02*Salary*Shifts);
+            int intSavings = (int) Savings;
+            System.out.println(intSavings);
+        }
+        sc.close();
+    }
+}
